@@ -33,7 +33,6 @@ router.post('/register', validInfo, async (req, res) => {
 
     res.json({ token });
   } catch (err) {
-    console.log(err.message);
     res.status(500).send('Server Error');
   }
 });
@@ -64,8 +63,6 @@ router.post('/login', validInfo, async (req, res) => {
 
     const token = jwtGenerator(user.rows[0].user_id);
     res.json({ token });
-
-    console.log(validPassword);
   } catch (err) {
     console.log(err.message);
     res.status(500).send('Server Error');
